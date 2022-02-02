@@ -20,7 +20,7 @@ function App() {
   //  console.log("updating items state")
   // }, [items]);
   useEffect(() => {
-    localStorage.setItem('shoppinglist', JSON.stringify(newItem));
+    localStorage.setItem('shoppinglist', JSON.stringify(items));
   }, [items]);
   // this fuction is equal to setAndSaveItems()
 
