@@ -1,5 +1,5 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { Link } from 'react-router-dom';
 const Nav = ({ search, setSearch }) => {
   return (
     <nav className='Nav'>
@@ -7,7 +7,8 @@ const Nav = ({ search, setSearch }) => {
         <label htmlFor='search'>Search Posts</label>
         <input
           id='search'
-          type='text'
+          type='text' 
+          role='searchbox'
           placeholder='Search Posts'
           value={search}
           onChange={(e) => setSearch(e.target.value)}

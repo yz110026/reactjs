@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 const NewPost = ({ 
   handleSubmit, postTitle, setPostTitle, postBody, setPostBody
 }) => {
