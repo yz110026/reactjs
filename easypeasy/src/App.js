@@ -15,7 +15,7 @@ import { useStoreActions } from 'easy-peasy';
 function App() {
   const setPosts = useStoreActions((actions) => actions.setPosts);
 
-  const { data, fetchError, isLoading } = useAxiosFetch('http://localhost:3500/posts');
+  const { data, fetchError, isLoading } = useAxiosFetch('https://github.com/yz110026/deploy_blog_netlify/blob/main/data/db.json');
 
   useEffect(() => {
     setPosts(data);
