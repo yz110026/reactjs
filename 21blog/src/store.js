@@ -1,4 +1,4 @@
-import { createStore, action, thunk, computed } from 'easy-peasy';
+import { createStore, action, thunk, computed } from "easy-peasy";
 import api from './api/posts';
 
 export default createStore({
@@ -37,35 +37,33 @@ export default createStore({
     savePost: thunk(async (actions, newPost, helpers) => {
         const { posts } = helpers.getState();
         try {
-            const response = await api.post('/posts',newPost);
+            const response = await api.post('/posts', newPost);
             actions.setPosts([...posts, response.data]);
             actions.setPostTitle('');
-            actions.setPostBody(''); 
-          } catch (error) {
-            console.log(`Error: ${error.message}`);
-          }
+            actions.setPostBody('');
+        } catch (err) {
+            console.log(`Error: ${err.message}`);
+        }
     }),
     deletePost: thunk(async (actions, id, helpers) => {
         const { posts } = helpers.getState();
         try {
             await api.delete(`/posts/${id}`);
             actions.setPosts(posts.filter(post => post.id !== id));
-          } catch (error) {
-            console.log(`Error: ${error.message}`);
-            
-          }
+        } catch (err) {
+            console.log(`Error: ${err.message}`);
+        }
     }),
-    editPost: thunk(async (actions, updatePost, helpers) => {
+    editPost: thunk(async (actions, updatedPost, helpers) => {
         const { posts } = helpers.getState();
-        const { id } = updatePost;
+        const { id } = updatedPost;
         try {
-            const response = await api.put(`/posts/${id}`, updatePost);
-            actions.setPosts(posts.map(post => post.id === id ? {...response.data} : post));
+            const response = await api.put(`/posts/${id}`, updatedPost);
+            actions.setPosts(posts.map(post => post.id === id ? { ...response.data } : post));
             actions.setEditTitle('');
             actions.setEditBody('');
-        } catch (error) {
-            console.log(`Error: ${error.message}`);
+        } catch (err) {
+            console.log(`Error: ${err.message}`);
         }
-        
     })
 });
