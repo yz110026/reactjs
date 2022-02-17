@@ -5,5 +5,5 @@ learning of reactjs
 
 15fetchdata is a app which can fetch data from specific website.
 
-dataContext and easypeasy are the same blog app, but use different way to manage state.
+dataContext and 21blog are the same blog app, but use different way to manage state. 21blog is using easy peasy to manage state.
 
