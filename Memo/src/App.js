@@ -9,7 +9,7 @@ import apiRequest from './apiRequest';
 
 function App() {
 
-  const API_URL = 'http://localhost:3500/items';
+  const API_URL = 'http://localhost:3501/items';
   
   const [items, setitems] = useState([]);
 
@@ -33,7 +33,7 @@ function App() {
     }
     setTimeout(() => {
       (async () => await fetchItems())();
-    }, 2000);
+    }, 1000);
   }, []);
   
   const addItem = async (item) => {
